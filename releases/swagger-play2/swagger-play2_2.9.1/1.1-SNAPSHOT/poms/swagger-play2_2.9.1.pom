@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>swagger-play2</groupId>
+    <groupId>com.wordnik</groupId>
     <artifactId>swagger-play2_2.9.1</artifactId>
     <packaging>jar</packaging>
     <description>swagger-play2</description>
     <version>1.1-SNAPSHOT</version>
     <name>swagger-play2</name>
     <organization>
-        <name>swagger-play2</name>
+        <name>com.wordnik</name>
     </organization>
     <dependencies>
         <dependency>
@@ -66,6 +66,12 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
+            <groupId>com.wordnik</groupId>
+            <artifactId>swagger-annotations_2.9.1</artifactId>
+            <version>1.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
             <groupId>javax.ws.rs</groupId>
             <artifactId>jsr311-api</artifactId>
             <version>1.1.1</version>
@@ -74,21 +80,21 @@
     </dependencies>
     <repositories>
         <repository>
-            <id>TypesafeReleasesRepository</id>
-            <name>Typesafe Releases Repository</name>
-            <url>http://repo.typesafe.com/typesafe/releases/</url>
-            <layout>default</layout>
-        </repository>
-        <repository>
-            <id>TypesafeSnapshotsRepository</id>
-            <name>Typesafe Snapshots Repository</name>
-            <url>http://repo.typesafe.com/typesafe/snapshots/</url>
+            <id>sonatypesnapshots</id>
+            <name>sonatype-snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
             <layout>default</layout>
         </repository>
         <repository>
             <id>javanet</id>
             <name>java-net</name>
             <url>http://download.java.net/maven/2/</url>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <id>TypesafeRepository</id>
+            <name>Typesafe Repository</name>
+            <url>http://repo.typesafe.com/typesafe/releases/</url>
             <layout>default</layout>
         </repository>
         <repository>
