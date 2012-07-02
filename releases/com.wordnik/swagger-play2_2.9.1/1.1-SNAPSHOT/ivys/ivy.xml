@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:e="http://ant.apache.org/ivy/extra">
-	<info organisation="com.wordnik" module="swagger-play2_2.9.1" revision="1.1-SNAPSHOT" status="release" publication="20120620154956">
+	<info organisation="com.wordnik" module="swagger-play2_2.9.1" revision="1.1-SNAPSHOT" status="release" publication="20120702110356">
 		<description>
 		swagger-play2
 		</description>
@@ -27,8 +27,8 @@
 	</publications>
 	<dependencies>
 		<dependency org="org.scala-lang" name="scala-library" rev="2.9.1" conf="compile->default(compile)"/>
-		<dependency org="play" name="play_2.9.1" rev="2.0.1" conf="compile->default(compile)"/>
-		<dependency org="play" name="play-test_2.9.1" rev="2.0.1" conf="test->default(compile)"/>
+		<dependency org="play" name="play_2.9.1" rev="2.0.2" conf="compile->default(compile)"/>
+		<dependency org="play" name="play-test_2.9.1" rev="2.0.2" conf="test->default(compile)"/>
 		<dependency org="org.codehaus.jackson" name="jackson-jaxrs" rev="1.8.5" conf="compile->default(compile)"/>
 		<dependency org="org.codehaus.jackson" name="jackson-xc" rev="1.8.5" conf="compile->default(compile)"/>
 		<dependency org="org.codehaus.jackson" name="jackson-mapper-asl" rev="1.8.5" conf="compile->default(compile)"/>
