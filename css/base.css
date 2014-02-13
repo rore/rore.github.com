@@ -65,7 +65,11 @@ a {
   max-width: 650px;
   margin-left: 150px;
   margin-right: 20px;
-  margin-bottom: 50px; }
+  margin-bottom: 50px; 
+  }
+  .post {
+  margin-bottom: 10px; 
+  }
   .content h1 {
     color: #333;
     font-family: "Yanone Kaffeesatz", Helvetica, sans-serif;
@@ -177,7 +181,7 @@ a {
       .content .listing a:hover {
         text-decoration: underline; }
   .content .meta {
-    margin: 30px 0;
+    margin: 10px 0;
     padding: 10px 0;
     font-family: Helvetica, sans-serif; }
     .content .meta p {
