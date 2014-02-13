@@ -207,6 +207,14 @@ a {
     font-weight: bold; }
   .content .talk-design .color .white {
     color: #fff; }
+.content .excerpt {
+      font-size: 13px;
+	  padding: 5px 0;
+}
+.content .excerpt p{
+      font-size: 13px;
+	   margin-bottom: 0.3em;
+}
 
 .twitter-share-button {
 height: 21px !important;
