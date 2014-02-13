@@ -1,0 +1,47 @@
+---
+layout: layout
+---
+
+<section class="content">
+  <h1>
+    <a href="{{ page.url }}">{{ page.title }}</a>
+  </h1>
+
+  <section class="byline">
+    {{ page.date | date: "%B %e, %Y" }}
+  </section>
+
+  {{ content }}
+
+  <!-- TODO: bio here -->
+  <section class="meta">
+	  <section class="social">
+		<span class="twitter" >
+		<a href="http://twitter.com/share?url={{ site.url }}{{ page.url }}" class="twitter-share-button" data-count="none" data-via="{{ site.twitter }}" >Tweet</a>
+		</span>
+		<span class="Facebook">
+		<iframe src="https://www.facebook.com/plugins/like.php?href={{ site.url }}{{ page.url }}&amp;show_faces=false&amp;layout=button_count" scrolling="no" frameborder="0" style="height: 21px; width: 100px" allowTransparency="true"></iframe>
+		</span>
+   	</section>
+    <!--<h3>Discussion, links, and tweets</h3>-->
+	<br/>
+    <section class="copy">
+      <a href="https://twitter.com/{{ site.twitter }}" target="_blank">
+        <img src="{{ site.gravatar_url }}?s=142" height="50" width="50" />
+      </a>
+      <p>
+        I'm Rotem Hermon, a software architect at <a href="http://gigya.com" target="_blank">Gigya</a>.
+      </p>
+
+     <!-- <a href="http://twitter.com/{{ site.twitter }}" class="twitter-follow-button" data-show-count="false">Follow @{{ site.twitter }}</a> -->
+    </section>
+	 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	  <script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=114346105298655";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+  </section>
+</section>
