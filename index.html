@@ -4,10 +4,10 @@ title: "Home"
 ---
 
 <section class="content">
-<h1>My dev space</h1>
-<p>I'm Rotem Hermon, currently a software architect at <a href="http://gigya.com" target="_blank">Gigya</a>.
+<h1>dev/space</h1>
+<p>I am Rotem Hermon. A software architect at <a href="http://gigya.com" target="_blank">Gigya</a>.
 <br/>
-Here you can find all of my dev related things.
+This is a space for my dev related things.
 </p>
 <h2>Projects</h2>
   <ul class="listing">
@@ -24,6 +24,7 @@ Here you can find all of my dev related things.
     {% for post in site.posts %}
     <li>
       <span>{{ post.date | date: "%B %e, %Y" }}</span> <a href="{{ post.url }}">{{ post.title }}</a>
+	  <section class="excerpt">{% if post.description %}{{ post.description }}{% else %}{{ post.excerpt }}{% endif %}</section>
     </li>
     {% endfor %}
   </ul>

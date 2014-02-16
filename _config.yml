@@ -2,8 +2,9 @@ permalink: /posts/:title
 rdiscount:
   extensions: [smart]
 name: Rotem Hermon
+site_name: dev/space - Rotem Hermon
 url: http://rore.im
-description: My dev blog
+description: Rotem Hermon's dev space
 twitter: margolis20
 linkedin: http://il.linkedin.com/in/rotemhermon/
 github: rore
