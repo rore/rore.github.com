@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Securing Elasticsearch using Finagle
+title: Securing Elasticsearch with Finagle
 category: posts
 comments: true
 description: Elasticsearch is the hot new kid on the NoSQL-Big-Data block. It is a powerful tool and there are a lot of things you can do with it. But as with any system, there are just some things that are not built in. For instance - security. 
