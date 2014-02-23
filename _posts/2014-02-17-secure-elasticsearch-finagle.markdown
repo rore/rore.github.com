@@ -10,10 +10,12 @@ description: Elasticsearch is the hot new kid on the NoSQL-Big-Data block. It is
 
 What if you need HTTP access to your Elasticsearch, but want to protect it from unauthorized access? How do you add a security layer to your cluster?
 
-One option is to use a security plugin (like [this one](https://github.com/salyh/elasticsearch-security-plugin), for example) that replaces the internal Netty server with another server that allows securing HTTP requests.
+There are a couple of common ways to handle this. One option is to use a security plugin (like [this one](https://github.com/salyh/elasticsearch-security-plugin), for example) that replaces the internal Netty server with another server that allows securing HTTP requests.
 Using a plugin does have its caveats, though, like being dependent on a plugin update if you want to update Elasticsearch to a newer version.
 
-Another way to go is to create an isolation layer in front of Elasticsearch. A proxy service that tunnels the requests to Elasticsearch while enforcing security on top of them. In this post I'll look into creating such a proxy in scala using twitter's Finagle library.
+Another option is to use nginx as a proxy in front of Elasticsearch (check out this [blog post](http://www.ragingcomputer.com/2014/02/securing-elasticsearch-kibana-with-nginx) for detailed instructions). While this is usually the simplest way to go, it might not always give you the full flexibility you need.
+
+In this post I'll explore a third possibility - building a small proxy server in scala using Twitter's Finagle library to create an isolation layer in front of Elasticsearch. We will also see how to use the Elastcisearch native client within the proxy for increased performance.  
 
 ---
 
