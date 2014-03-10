@@ -2,7 +2,7 @@
 layout: post
 title: Building a social music service - the technology behind serendip.me
 category: posts
-comments: false
+comments: true
 description: The technology and architecture behind serendip.me - a social music service built with scala, akka, MongoDB and Elasticsearch. 
 ---
 
@@ -19,13 +19,16 @@ Serendip is running on AWS and is built on the following stack: [scala](http://w
 
 One of the challenges of building serendip was the need to handle a large amount of data from day one, since a main feature of serendip is that it collects every piece of music being shared on Twitter from public music services. So when we approached the question of choosing the language and technologies to use, an important consideration was the ability to scale. 
 
-The JVM seemed the right basis for our system as for its proven performance and tooling. When we looked at the JVM ecosystem, scala stood out as an interesting language option that allowed a modern approach to writing code, while keeping full interoperability with Java. Another argument in favour of scala was the akka actor framework which seemed to be a good fit for a stream processing infrastructure (and indeed it was!). The Play web framework was just starting to get some adoption and looked promising. Back when we started, at the very beginning of 2011, these were still kind of bleeding edge technologies. So of course we were very pleased that by the end of 2011 scala and akka consolidated to become [Typesafe](http://typesafe.com/), with Play joining in shortly after.
+The JVM seemed the right basis for our system as for its proven performance and tooling. It's also the language of choice for a lot of open source system (like Elasticsearch) which enables using their native clients - a big plus.    
+When we looked at the JVM ecosystem, scala stood out as an interesting language option that allowed a modern approach to writing code, while keeping full interoperability with Java. Another argument in favour of scala was the akka actor framework which seemed to be a good fit for a stream processing infrastructure (and indeed it was!). The Play web framework was just starting to get some adoption and looked promising. Back when we started, at the very beginning of 2011, these were still kind of bleeding edge technologies. So of course we were very pleased that by the end of 2011 scala and akka consolidated to become [Typesafe](http://typesafe.com/), with Play joining in shortly after.
 
 MongoDB was chosen for its combination of developer friendliness, ease of use, feature set and possible scalability (using auto-sharding). 
 We learned very soon that the way we wanted to use and query our data will require creating a lot of big indexes on MongoDB, which will cause us to be hitting performance and memory issues pretty fast. So we kept using MongoDB mainly as a key-value document store, also relying on its atomic increments for several features that required counters.   
 With this type of usage MongoDB turned out to be pretty solid. It is also rather easy to operate, but mainly because we managed to *avoid* using sharding and went with a single replica-set (the sharding architecture of MongoDB is pretty complex). 
 
 For querying our data we needed a system with full blown search capabilities. Out of the possible open source search solutions, Elasticsearch came as the most scalable and cloud oriented system. Its dynamic indexing schema and the many search and faceting possibilities it provides allowed us to build many features on top of it, making it a central component in our architecture.
+
+We chose to manage both MongoDB and Elasticsearch ourselves and not use a hosted solution for two main reasons. First, we wanted full control over both systems. We did not want to depend on another element for software upgrades/downgrades. And second, the amount of data we process meant that a hosted solution was more expensive than managing it directly on EC2 ourselves. 
 
 ### Some numbers
 
@@ -40,7 +43,7 @@ Our MongoDB cluster gets ~100 writes/sec and ~300 reads/sec as it handles some m
 
 When we started designing the architecture for serendip’s main music feed, we knew we wanted the feed to be dynamic and reactive to user actions and input. If a user gives a “rock-on” to a song or “airs” a specific artist, we want that action to reflect immediately in the feed. If a user “dislikes” an artist, we should not play that music again.   
 We also wanted the feed to be a combination of music from several sources, like the music shared by friends, music by favorite artists and music shared by “suggested” users that have the same musical taste.   
-These requirements meant that a “fan-out” approach to feed creation will not be the way to go. We needed an option to build the feed in real-time, using all the signals we have concerning the user. The set of features Elasticsearch provides allowed us to build this kind of real-time feed generation. 
+These requirements meant that a “[fan-out-on-write](http://www.quora.com/What-is-the-best-storage-solution-for-building-a-news-feed-MongoDB-or-MySQL)” approach to feed creation will not be the way to go. We needed an option to build the feed in real-time, using all the signals we have concerning the user. The set of features Elasticsearch provides allowed us to build this kind of real-time feed generation. 
 
 The feed algorithm consists of several “strategies” for selecting items which are combined dynamically with different ratios on every feed fetch. Each strategy can take into account the most recent user actions and signals. The combination of strategies is translated to several searches on the live data that is constantly indexed by Elasticsearch. Since the data is time-based and the indexes are created per month, we always need to query only a small subset of the complete data.    
 Fortunately enough, Elasticsearch handles these searches pretty well. It also provides a known path to scaling this architecture - writes can be scaled by increasing the number of shards. Searches can be scaled by adding more replicas and physical nodes.
@@ -56,7 +59,7 @@ Serendip is using [ServerDensity](http://www.serverdensity.com/) for monitoring 
 An internal statistic collection mechanism collects events for every action that happens in the system, and keeps them in a MongoDB collection. A timed job reads those statistics from MongoDB once a minute and reports them to ServerDensity. This allows us to use ServerDensity for monitoring and alerting Elasticsearch as well as our operational data. 
 
 Managing servers and deployments is done using Amazon Elastic Beanstalk. Elastic Beanstalk is AWS’s limited PaaS solution. It’s very easy to get started with, and while it’s not really a full featured PaaS, its basic functionality is enough for most common use cases. It provides easy auto-scaling configuration and also gives complete access via EC2.    
-Building the application is done with a Jenkins instance that resides on EC2. The Play web application is packaged as a WAR. A [post-build script](https://github.com/rore/beanstalk-upload) pushes the WAR to Elastic Beanstalk as a new application version. The new version is not deployed automatically to the servers - it’s done manually. It is usually deployed first to the staging environment for testing, and once approved is deployed to the production environment. 
+Building the application is done with a [Jenkins](http://jenkins-ci.org/) instance that resides on EC2. The Play web application is packaged as a WAR. A [post-build script](https://github.com/rore/beanstalk-upload) pushes the WAR to Elastic Beanstalk as a new application version. The new version is not deployed automatically to the servers - it’s done manually. It is usually deployed first to the staging environment for testing, and once approved is deployed to the production environment. 
 
 ### Takeaways
 
