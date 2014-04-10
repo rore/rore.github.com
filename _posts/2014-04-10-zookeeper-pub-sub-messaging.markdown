@@ -60,7 +60,7 @@ Subscribing to messages under a topic consists of the following steps:
 To broadcast a message to a topic the producer:
 
 1. Gets all the child nodes of the topic subscribers path (`/subscribers/[topic]`). If there are no subscribers, an error is returned.
-2. For each of the subscribers, create a sequential persistent node under its message queue node (`/messages/[consumerID]/[topic]`). The node value is the message.
+2. For each subscriber, create a sequential persistent node under its message queue node (`/messages/[consumerID]/[topic]`). The node value is the message.
 
 ### The Cleaner
 
