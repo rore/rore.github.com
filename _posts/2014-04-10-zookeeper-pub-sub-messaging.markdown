@@ -5,7 +5,6 @@ category: posts
 comments: true
 description: Using zookeeper as a Pub/Sub messaging service for sending notifications between nodes of a distributed service.
 ---
-
 When building a distributed service, there are cases where you need to broadcast messages to all nodes running your service.    
 For example, if your service holds a cache of items in memory, and an operation on one of the nodes can invalidate an item, you need to notify all of the nodes to remove that item from the cache.
 
