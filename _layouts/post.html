@@ -20,8 +20,21 @@ layout: layout
 		<a href="http://twitter.com/share?url={{ site.url }}{{ page.url }}" class="twitter-share-button" data-count="none" data-via="{{ site.twitter }}" >Tweet</a>
 		</span>
 		<span class="Facebook">
-		<iframe src="https://www.facebook.com/plugins/like.php?href={{ site.url }}{{ page.url }}&amp;show_faces=false&amp;layout=button_count" scrolling="no" frameborder="0" style="height: 21px; width: 100px" allowTransparency="true"></iframe>
+		<iframe src="https://www.facebook.com/plugins/like.php?href={{ site.url }}{{ page.url }}&amp;show_faces=false&amp;layout=button_count" scrolling="no" frameborder="0" style="height: 21px; width: 80px" allowTransparency="true"></iframe>
 		</span>
+		<span class="Google" style="width:65px">
+		<!-- Place this tag where you want the +1 button to render. -->
+<div class="g-plusone" data-size="medium"></div>
+
+<!-- Place this tag after the last +1 button tag. -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+</span>
    	</section>
 	{% if page.comments %}
 	    <div id="disqus_thread"></div>
