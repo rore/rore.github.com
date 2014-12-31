@@ -85,7 +85,7 @@ Now we can do some searches on it.
 The usual example will be searching a parent by its children. Lets find all the parents that has a girl. We expect to get back only Bill. 
 
 ```bash
-    curl -XPOST "$ELASTICSEARCH_ENDPOINT/_search?pretty" -d '
+    curl -XPOST "$ELASTICSEARCH_ENDPOINT/es-joins/person/_search?pretty" -d '
     {
         "query": {
             "filtered": {
@@ -113,7 +113,7 @@ We can also combine conditions on multiple child types.
 Lets find parents that have a boy and a dog. This time we expect to get back both Bill and Jane. 
 
 ```bash 
-    curl -XPOST "$ELASTICSEARCH_ENDPOINT/_search?pretty" -d '
+    curl -XPOST "$ELASTICSEARCH_ENDPOINT/es-joins/person/_search?pretty" -d '
     {
         "query": {
             "filtered": {
@@ -148,12 +148,12 @@ Lets find parents that have a boy and a dog. This time we expect to get back bot
 ```
 
 Another commonly used option is finding [children by their parents](http://www.elasticsearch.org/guide/en/elasticsearch/guide/current/has-parent.html).   
-But a more interesting possibility is finding children _**by their siblinds**_.   
+But a more interesting possibility is finding children _**by their siblings**_.   
 Lets lookup all boys that have a dog. To do that we're searching on the "children" type, and doing a has\_parent filter that contains a has\_child filter on the "pets" type.   
 This time we expect to get back the children - Adam and Xander.
 
 ```bash 
-    curl -XPOST "$ELASTICSEARCH_ENDPOINT/play/children/_search?pretty" -d '
+    curl -XPOST "$ELASTICSEARCH_ENDPOINT/es-joins/children/_search?pretty" -d '
     {
         "query": {
             "filtered": {
