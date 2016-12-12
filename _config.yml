@@ -12,4 +12,4 @@ gravatar_url: https://s.gravatar.com/avatar/ed52a75c8cf2f4cb1c2e9d8d161ca771
 safe: true
 lsi: false
 markdown: redcarpet
-pygments: true
+highlighter: rouge
