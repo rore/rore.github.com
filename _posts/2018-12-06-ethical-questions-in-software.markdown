@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Ethical Quesations In Software Engineering
+title: Ethical Questions In Software Engineering
 category: posts
 comments: true
 description: Software is ruling the world. Software engineering is becoming the most influencing practice. Are we conscious enough to the ethical aspects of what we do? Are we doing enough to educate developers to be responsible for the change they are making in the world?
