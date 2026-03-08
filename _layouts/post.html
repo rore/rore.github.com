@@ -13,48 +13,23 @@ layout: layout
 
   {{ content }}
 
-  <!-- TODO: bio here -->
   <section class="meta">
-	  <section class="social">
-		<span class="twitter" >
-		<a href="http://twitter.com/share?url={{ site.url }}{{ page.url }}" class="twitter-share-button" data-count="none" data-via="{{ site.twitter }}" >Tweet</a>
-		</span>
-		<span class="Facebook">
-		<iframe src="https://www.facebook.com/plugins/like.php?href={{ site.url }}{{ page.url }}&amp;show_faces=false&amp;layout=button_count" scrolling="no" frameborder="0" style="height: 21px; width: 80px" allowTransparency="true"></iframe>
-		</span>
-		<span class="Google" style="width:65px">
-		<!-- Place this tag where you want the +1 button to render. -->
-<div class="g-plusone" data-size="medium"></div>
-
-<!-- Place this tag after the last +1 button tag. -->
-<script type="text/javascript">
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/platform.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>
-</span>
-   	</section>
-	{% if page.comments %}
-	    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'roreim'; 
+    <section class="social share-links">
+      <a href="https://twitter.com/intent/tweet?text={{ page.title | cgi_escape }}&amp;url={{ site.url | append: page.url | cgi_escape }}&amp;via={{ site.twitter | cgi_escape }}" target="_blank" rel="noopener noreferrer">Share on X</a>
+      <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url | append: page.url | cgi_escape }}" target="_blank" rel="noopener noreferrer">Share on LinkedIn</a>
+      <a href="{{ site.url }}{{ page.url }}">Permalink</a>
+    </section>
+    {% if page.comments %}
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'roreim';
         (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-	{% endif %}
-	 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-	  <script>(function(d, s, id) {
-		  var js, fjs = d.getElementsByTagName(s)[0];
-		  if (d.getElementById(id)) return;
-		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=114346105298655";
-		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));</script>
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    {% endif %}
   </section>
 </section>
