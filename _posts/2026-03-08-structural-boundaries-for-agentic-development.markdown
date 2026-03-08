@@ -20,7 +20,7 @@ It's a bit like putting a bear in a cage. Inside the cage the bear can move howe
 I started experimenting with this idea in a small project called BEAR - Block Enforceable Architectural Representation. The idea is that an agent starts from a small representation of the application as a set of blocks, and then works within those boundaries. BEAR CLI generates deterministic checks from it, and CI can use BEAR to surface structural changes. If a pull request expands the authority of a component, that expansion becomes visible rather than hidden inside ordinary code changes, and a human-in-the-loop review can be triggered.
 
 This is still very much an experiment, but the project and how it works are available here:
-[BEAR on GitHub](https://github.com/rore/bear-cli)
+<a href="https://github.com/rore/bear-cli" target="_blank" rel="noopener noreferrer">BEAR on GitHub</a>
 
 As development velocity continues to increase, it seems likely that some form of explicit structural boundary layer will become necessary.
 
