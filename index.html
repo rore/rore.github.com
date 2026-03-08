@@ -12,16 +12,10 @@ This is my little space on the Interwebs.
 <h2>Projects</h2>
   <ul class="listing">
     <li>
-      <a href="https://github.com/rore/zkms" target="_blank"><b>zkms</b></a>, A simple pub-sub messaging service based on Zookeeper.
+      <a href="https://github.com/rore/bear-cli" target="_blank" rel="noopener noreferrer"><b>bear</b></a>
     </li>
     <li>
-      <a href="https://github.com/rore/json2flot" target="_blank"><b>json2flot</b></a>, A Javascript library for collecting, aggregating and plotting real-time metrics from JSON data using flot.
-    </li>
-    <li>
-      <a href="https://github.com/rore/countem" target="_blank"><b>countem</b></a>, A scala library for counting events in a distributed system.
-    </li>
-    <li>
-      <a href="https://github.com/gigya/flume-ng-elasticsearch-ser-ex" target="_blank"><b>flume-ng-elasticsearch-ser-ex</b></a>, An extended logstash-format serializer for the Elasticsearch sink for Flume.
+      <a href="https://github.com/rore/minimap" target="_blank" rel="noopener noreferrer"><b>minimap</b></a>
     </li>
   </ul>
 
@@ -30,7 +24,7 @@ This is my little space on the Interwebs.
     {% for post in site.posts %}
     <li>
       <span>{{ post.date | date: "%B %e, %Y" }}</span> <a href="{{ post.url }}">{{ post.title }}</a>
-	  <section class="excerpt">{% if post.description %}{{ post.description }}{% else %}{{ post.excerpt }}{% endif %}</section>
+      <section class="excerpt">{% if post.description %}{{ post.description }}{% else %}{{ post.excerpt }}{% endif %}</section>
     </li>
     {% endfor %}
   </ul>
