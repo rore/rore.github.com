@@ -1,6 +1,6 @@
 ---
 layout: post
-title: BEAR: Structural Boundaries for Agentic Development
+title: "BEAR: Structural Boundaries for Agentic Development"
 category: posts
 comments: true
 description: BEAR is an experiment in enforcing explicit architectural boundaries so agentic development can move fast without hiding structural changes.
