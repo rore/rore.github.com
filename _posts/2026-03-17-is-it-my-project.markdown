@@ -5,7 +5,7 @@ category: posts
 comments: true
 description: As agent-assisted development takes over more of the creative and implementation process, the question of ownership starts to feel less practical and more existential.
 ---
-In my last post I introduced my side project, BEAR - https://lnkd.in/dweDTc8k - a tool that tries to show how agentic development may be done in a safer way, by creating boundaries for agents as they develop, and allowing humans to be alerted when agents try to expand these boundaries.
+In my last post I introduced my side project, <a href="https://github.com/rore/bear-cli" target="_blank" rel="noopener noreferrer">BEAR</a> - a tool that tries to show how agentic development may be done in a safer way, by creating boundaries for agents as they develop, and allowing humans to be alerted when agents try to expand these boundaries.
 
 But I want to focus on something else in my project. I want to focus on the "my".
 
