@@ -13,6 +13,8 @@ This works OK, but it requires a lot of copying and pasting from agent to agent.
 
 Since I already have my human-agent collaborative UI for project roadmaps, I added this as another capability, called <a href="https://github.com/rore/minimap#spec-sessions" target="_blank" rel="noopener noreferrer">Spec Sessions</a>.
 
+![Minimap Spec Sessions UI](/images/minimap-spec-session.png)
+
 It's a combination of a skill for the agent and a UI for the human. It defines a workflow for working on specs, or any .md file for that matter. The agent attaches the file to a Minimap spec session, agents can comment on it and on other comments, and the human, in this case me, can see and join the conversation through the UI.
 
 For specs that require multiple iterations with multiple agents, this makes the process much more visible, and also more fun to work on.
