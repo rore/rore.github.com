@@ -3,7 +3,7 @@ layout: post
 title: "How I Accidentally Solved Intent Debt*"
 category: posts
 comments: true
-description: I built Agent Workflow to structure the coding step for AI agents, then discovered it was addressing intent debt, until a real regression exposed what it still missed.
+description: I built Agent Workflow to structure the coding step for AI agents, then discovered it was also addressing intent debt — until a real regression exposed what it still missed.
 ---
 
 (* Yes, it’s clickbait. I didn’t actually solve it. Well, maybe some of it. I think the story is interesting. Read on.)
