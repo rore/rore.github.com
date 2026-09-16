@@ -42,7 +42,7 @@ This can happen across the whole SDLC. What struck me is how directly this appli
 
 Reading this, I suddenly realized - this is actually a pretty good description of one of the problems I have been trying to solve with Agent Workflow.
 
-*The Work Record it produces preserves this change-level intent that would otherwise disappear with the agent session*: it records what outcome the task is supposed to achieve, what is in and out of scope, the constraints that must remain true, assumptions discovered along the way, the chosen approach, and how the work should be verified.
+The Work Record it produces preserves this change-level intent that would otherwise disappear with the agent session: it records what outcome the task is supposed to achieve, what is in and out of scope, the constraints that must remain true, assumptions discovered along the way, the chosen approach, and how the work should be verified.
 
 For larger or riskier changes it also records discovery, plan review, approvals, implementation notes, and review findings.
 
