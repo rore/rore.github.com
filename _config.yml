@@ -13,3 +13,5 @@ avatar_url: /images/avatar.jpg
 safe: true
 lsi: false
 highlighter: rouge
+plugins:
+  - jekyll-sitemap
